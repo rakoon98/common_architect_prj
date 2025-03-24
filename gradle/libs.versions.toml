@@ -1,0 +1,173 @@
+[versions]
+agp = "8.8.2"
+kotlin = "2.0.0"
+ksp = "2.0.20-1.0.24"
+
+coreKtx = "1.15.0"
+lifecycleRuntimeKtx = "2.8.7"
+
+# classpath
+builg-gradle = "8.3.2"
+glide = "4.15.1"
+kotlin-jetbrains = "2.0.0"
+google-services = "4.4.2"
+firebase-crashlytics-gradle = "3.0.3"
+dagger-gradle = "2.51.1"
+
+# compose
+activityCompose = "1.10.1"
+composeBom = "2025.03.00"
+
+# test
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+
+# coroutines
+kotlinxCoroutines = "1.7.3"
+
+# image
+compose-coil = "2.4.0"
+
+# hilt
+hilt = "2.51.1"
+hiltExt = "1.2.0"
+
+# Network
+okHttp = "4.10.0"
+retrofit = "2.9.0"
+retrofitKotlinxSerializationJson = "1.0.0"
+okHttpProfiler = "1.0.8"
+jvm = "1.9.0"
+plugin-serialization = "1.9.0"
+serializationJson = "1.5.1"
+
+# orbit mvi
+mvi-orbit = "6.1.0"
+
+# data
+room = "2.6.1"
+
+[libraries]
+# classpath
+build-gradle = { module = "com.android.tools.build:gradle", version.ref = "builg-gradle" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin-jetbrains" }
+kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin-jetbrains" }
+google-services = { module = "com.google.gms:google-services", version.ref = "google-services" }
+firebase-crashlytics-gradle = { module = "com.google.firebase:firebase-crashlytics-gradle", version.ref = "firebase-crashlytics-gradle" }
+dagger-gradle = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "dagger-gradle" }
+
+# android
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+
+# android compose
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
+# image
+compose-coil = { module = "io.coil-kt:coil-compose", version.ref = "compose-coil" }
+compose-coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "compose-coil" }
+
+# hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+#hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+hilt-ext-common = { module = "androidx.hilt:hilt-common", version.ref = "hiltExt" }
+hilt-viewmodel = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltExt" }
+hilt-google-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-google-android-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+
+# Network
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okHttp" }
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
+org-jetbrains-kotlinx-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializationJson" }
+localebro-okhttpprofiler = { module = "com.localebro:okhttpprofiler", version.ref = "okHttpProfiler" }
+
+# Coroutiens
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+
+# MVI - Orbit
+mvi-orbit-core = { module = "org.orbit-mvi:orbit-core", version.ref = "mvi-orbit" }
+mvi-orbit-viewmodel = { module = "org.orbit-mvi:orbit-viewmodel", version.ref = "mvi-orbit" }
+mvi-orbit-compose = { module = "org.orbit-mvi:orbit-compose", version.ref = "mvi-orbit" }
+mvi-orbit-test = { module = "org.orbit-mvi:orbit-test", version.ref = "mvi-orbit" }
+
+# room
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+
+# test
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+[bundles]
+android = [
+    "androidx-core-ktx",
+    "androidx-material3",
+    "androidx-lifecycle-runtime-ktx"
+]
+
+compose = [
+    "androidx-activity-compose",
+    "androidx-ui",
+    "androidx-ui-graphics",
+    "androidx-ui-tooling",
+    "androidx-ui-tooling-preview",
+    "androidx-ui-test-manifest",
+    "androidx-ui-test-junit4"
+]
+
+image = [
+    "compose-coil",
+    "compose-coil-gif"
+]
+
+hilt = [
+    "hilt-android",
+    "hilt-compiler",
+    "hilt-viewmodel",
+    "hilt-ext-common",
+    #    "hilt-ext-work",
+    #    "hilt-android-testing",
+]
+
+coroutiens = [
+    "coroutines-android",
+    "coroutines-core"
+]
+
+network = [
+    "okhttp-logging",
+    "retrofit-core",
+    "retrofit-kotlin-serialization",
+    "org-jetbrains-kotlinx-kotlinx-serialization-json",
+    "localebro-okhttpprofiler"
+]
+
+obrit-mvi = [
+    "mvi-orbit-core",
+    "mvi-orbit-compose",
+    "mvi-orbit-viewmodel",
+#    "mvi-orbit-test"
+]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
