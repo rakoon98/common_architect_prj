@@ -57,6 +57,9 @@ dependencies {
     implementation(libs.bundles.coroutiens)
     implementation(libs.bundles.obrit.mvi)
 
+    implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
