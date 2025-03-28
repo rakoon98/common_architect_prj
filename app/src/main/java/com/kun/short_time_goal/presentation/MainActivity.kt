@@ -1,4 +1,4 @@
-package com.kun.short_time_goal.presentation.main
+package com.kun.short_time_goal.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.kun.short_time_goal.presentation.main.MainScreen
+import com.kun.short_time_goal.presentation.navigation.KunNavigation
 import com.kun.short_time_goal.ui.theme.Architect_ProjectTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,30 +22,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Architect_ProjectTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            KunNavigation()
+//            Architect_ProjectTheme {}
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "[TEST] Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Architect_ProjectTheme {
-        Greeting("Android")
     }
 }

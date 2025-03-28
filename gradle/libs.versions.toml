@@ -1,6 +1,6 @@
 [versions]
 agp = "8.8.2"
-kotlin = "2.0.0"
+kotlin = "2.0.20"
 ksp = "2.0.20-1.0.24"
 
 coreKtx = "1.15.0"
@@ -9,7 +9,7 @@ lifecycleRuntimeKtx = "2.8.7"
 # classpath
 builg-gradle = "8.3.2"
 glide = "4.15.1"
-kotlin-jetbrains = "2.0.0"
+kotlin-jetbrains = "2.0.20"
 google-services = "4.4.2"
 firebase-crashlytics-gradle = "3.0.3"
 dagger-gradle = "2.51.1"
@@ -17,6 +17,7 @@ dagger-gradle = "2.51.1"
 # compose
 activityCompose = "1.10.1"
 composeBom = "2025.03.00"
+compose-navigation = "2.8.9"
 
 # test
 junit = "4.13.2"
@@ -48,6 +49,9 @@ mvi-orbit = "6.1.0"
 # data
 room = "2.6.1"
 
+# worker
+worker = "2.10.0"
+
 [libraries]
 # classpath
 build-gradle = { module = "com.android.tools.build:gradle", version.ref = "builg-gradle" }
@@ -72,6 +76,7 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
 
 # image
 compose-coil = { module = "io.coil-kt:coil-compose", version.ref = "compose-coil" }
@@ -80,12 +85,11 @@ compose-coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "compose-coil
 # hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-google-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 #hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 hilt-ext-common = { module = "androidx.hilt:hilt-common", version.ref = "hiltExt" }
 hilt-viewmodel = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltExt" }
-hilt-google-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
-hilt-google-android-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 
 # Network
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okHttp" }
@@ -109,6 +113,11 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 
+# worker
+worker = { module = "androidx.work:work-runtime", version.ref = "worker" }
+worker-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "worker" }
+hilt-ext-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltExt" }
+
 # test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -128,21 +137,13 @@ compose = [
     "androidx-ui-tooling",
     "androidx-ui-tooling-preview",
     "androidx-ui-test-manifest",
-    "androidx-ui-test-junit4"
+    "androidx-ui-test-junit4",
+    "androidx-compose-navigation"
 ]
 
 image = [
     "compose-coil",
     "compose-coil-gif"
-]
-
-hilt = [
-    "hilt-android",
-    "hilt-compiler",
-    "hilt-viewmodel",
-    "hilt-ext-common",
-    #    "hilt-ext-work",
-    #    "hilt-android-testing",
 ]
 
 coroutiens = [
@@ -163,6 +164,12 @@ obrit-mvi = [
     "mvi-orbit-compose",
     "mvi-orbit-viewmodel",
 #    "mvi-orbit-test"
+]
+
+worker = [
+    "worker",
+    "worker-ktx",
+    "hilt-ext-work"
 ]
 
 [plugins]

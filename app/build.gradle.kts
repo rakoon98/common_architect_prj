@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose)
     alias(libs.plugins.ksp)
-    id("kotlin-kapt")
+//    id("kotlin-kapt")
     id("kotlin-android")
     id("kotlinx-serialization")
     id("com.google.dagger.hilt.android")
@@ -52,10 +52,14 @@ dependencies {
     implementation(libs.bundles.compose)
 
     implementation(libs.bundles.image)
-    implementation(libs.bundles.hilt)
     implementation(libs.bundles.network)
     implementation(libs.bundles.coroutiens)
     implementation(libs.bundles.obrit.mvi)
+    implementation(libs.bundles.worker)
+
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.viewmodel)
+    ksp(libs.hilt.google.compiler)
 
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
