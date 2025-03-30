@@ -136,8 +136,8 @@ compose = [
     "androidx-ui-graphics",
     "androidx-ui-tooling",
     "androidx-ui-tooling-preview",
-    "androidx-ui-test-manifest",
-    "androidx-ui-test-junit4",
+#    "androidx-ui-test-manifest",
+#    "androidx-ui-test-junit4",
     "androidx-compose-navigation"
 ]
 

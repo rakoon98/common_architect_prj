@@ -1,15 +1,17 @@
 package com.kun.short_time_goal.presentation.add_goal
 
-import android.graphics.Paint.Align
+import android.Manifest
+import android.content.Context
+import android.os.Build
 import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
-import androidx.compose.foundation.content.MediaType.Companion.Text
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -27,23 +29,28 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.work.WorkManager
+import com.kun.short_time_goal.internal.worker.goalWorkerRequest
 import com.kun.short_time_goal.presentation.add_goal.container.AddGoalSideEffect
 import org.orbitmvi.orbit.compose.collectAsState
 import org.orbitmvi.orbit.compose.collectSideEffect
 
 @Composable
 fun AddGoalScreen(
-    viewModel: AddGoalViewModel = hiltViewModel()
+    viewModel: AddGoalViewModel = hiltViewModel(),
+    context: Context = LocalContext.current,
+    workManager: WorkManager = WorkManager.getInstance(context)
 ) {
     val uiState by viewModel.collectAsState()
     viewModel.collectSideEffect { sideEffect ->
         when(sideEffect) {
             AddGoalSideEffect.OnAddGoal -> {
-
+                goalWorkerRequest(workManager)
             }
             else -> {}
         }
@@ -51,6 +58,22 @@ fun AddGoalScreen(
 
     var content by remember { mutableStateOf("") }
     var isAlarm by remember { mutableStateOf(false) }
+
+    val permission: String? = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+        Manifest.permission.POST_NOTIFICATIONS
+    else
+        null
+
+    val permissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            isAlarm = !isAlarm
+            Toast.makeText(context, "알람 권한이 설정 되었습니다.", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "알람 권한이 없습니다", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     Scaffold {
         Column(modifier = Modifier
@@ -92,7 +115,14 @@ fun AddGoalScreen(
                 verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
                     checked = isAlarm,
-                    onCheckedChange = { isAlarm = !isAlarm }
+                    onCheckedChange = {
+                        val changeBool = !isAlarm
+                        permission?.let {
+                            permissionLauncher.launch(permission)
+                        } ?: run {
+                            isAlarm = changeBool
+                        }
+                    }
                 )
                 Spacer(Modifier.size(8.dp))
                 Text(
