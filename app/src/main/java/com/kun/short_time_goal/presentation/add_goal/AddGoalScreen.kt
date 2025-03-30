@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.work.WorkManager
+import com.kun.short_time_goal.internal.notification.showNotification
 import com.kun.short_time_goal.internal.worker.goalWorkerRequest
 import com.kun.short_time_goal.presentation.add_goal.container.AddGoalSideEffect
 import org.orbitmvi.orbit.compose.collectAsState
@@ -70,6 +71,7 @@ fun AddGoalScreen(
         if (isGranted) {
             isAlarm = !isAlarm
             Toast.makeText(context, "알람 권한이 설정 되었습니다.", Toast.LENGTH_SHORT).show()
+            showNotification(context)
         } else {
             Toast.makeText(context, "알람 권한이 없습니다", Toast.LENGTH_SHORT).show()
         }
