@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "227431532931",
+    "project_id": "short-time-goal",
+    "storage_bucket": "short-time-goal.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227431532931:android:06d84c72051e5eee040eb6",
+        "android_client_info": {
+          "package_name": "com.kun.short_time_goal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaTQZ6kcYCAvMOtuX4_NZQB8XMoXNg8jE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

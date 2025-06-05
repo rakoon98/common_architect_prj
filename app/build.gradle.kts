@@ -7,6 +7,7 @@ plugins {
     id("kotlin-android")
     id("kotlinx-serialization")
     id("com.google.dagger.hilt.android")
+    id("com.google.firebase.crashlytics")
 
 }
 
@@ -64,6 +65,9 @@ dependencies {
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
 
 //    testImplementation(libs.junit)
 //    androidTestImplementation(libs.androidx.junit)

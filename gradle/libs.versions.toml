@@ -2,9 +2,12 @@
 agp = "8.8.2"
 kotlin = "2.0.20"
 ksp = "2.0.20-1.0.24"
+firebaseCrashlyticsPlugin = "3.0.3"
 
 coreKtx = "1.15.0"
 lifecycleRuntimeKtx = "2.8.7"
+
+firebase-bom = "33.12.0"
 
 # classpath
 builg-gradle = "8.3.2"
@@ -51,6 +54,7 @@ room = "2.6.1"
 
 # worker
 worker = "2.10.0"
+
 
 [libraries]
 # classpath
@@ -118,6 +122,10 @@ worker = { module = "androidx.work:work-runtime", version.ref = "worker" }
 worker-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "worker" }
 hilt-ext-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltExt" }
 
+# firebase
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
+
 # test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -178,3 +186,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsPlugin" }
